@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+        <link rel="stylesheet" href="/css/output.css" />
+    </head>
+    <body class="w-full min-h-screen flex jusify-center items-center">
+        <div class="w-full max-w-xs lg:max-w-4xl xl:max-w-6xl mx-auto flex flex-col gap-y-6">
+            <p class="text-center font-bold text-4xl">Daftar Makanan</p>
+            <button class="text-bg-amber-500 text-black py-2 rounded-xl ring-2 ring-amber-500 hover:bg-amber-500 hover:text-white hover:scale-105 hover:duration-300 hover:cursor-pointer px-12 mx-auto">Tambah Data</button>
+            <div class="grid lg:grid-cols-3 xl:grid-cols-4 gap-y-6 lg:gap-x-4">
+                {{#if foods.length}}
+                    {{#each foods}}
+                        <a href="/foods/{{this.id}}" class="flex flex-col gap-y-3 ring-2 ring-amber-500 py-2 rounded-xl items-center">
+                            <p class="text-center mx-auto">{{this.name}}</p>
+                            <p class="text-center mx-auto">{{this.price}}</p>
+                            <p class="text-center mx-auto">{{this.description}}</p>
+                        </a>
+                    {{/each}}
+                {{else}}
+                    <p class="text-center mx-auto text-red-500">Tidak ada data makanan</p>
+                {{/if}}
+            </div>
+        </div>
+    </body>
+</html>
