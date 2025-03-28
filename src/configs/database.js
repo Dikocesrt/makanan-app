@@ -4,10 +4,10 @@ const sequelize = new Sequelize("makanan_db", "root", "root", {
     host: "localhost",
     dialect: "mysql",
     port: 8889,
+    logging: false,
 });
 
-// Cek koneksi ke database
-const testConnection = async () => {
+const initializeDatabase = async () => {
     try {
         await sequelize.authenticate();
         console.log("✅ Database connected successfully!");
@@ -16,7 +16,6 @@ const testConnection = async () => {
     }
 };
 
-// Jalankan pengecekan koneksi
-testConnection();
+initializeDatabase();
 
 module.exports = sequelize;
