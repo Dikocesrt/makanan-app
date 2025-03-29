@@ -14,12 +14,20 @@ const Food = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        image: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
         description: {
             type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        rating: {
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
     },

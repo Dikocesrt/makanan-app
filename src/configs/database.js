@@ -1,11 +1,18 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize("makanan_db", "root", "root", {
-    host: "localhost",
-    dialect: "mysql",
-    port: 8889,
-    logging: false,
-});
+require("dotenv").config();
+
+const sequelize = new Sequelize(
+    "makanan_db",
+    process.env.DB_USERNAME,
+    process.env.DB_PASSWORD,
+    {
+        host: process.env.DB_HOST,
+        dialect: "mysql",
+        port: process.env.DB_PORT,
+        logging: false,
+    }
+);
 
 const initializeDatabase = async () => {
     try {

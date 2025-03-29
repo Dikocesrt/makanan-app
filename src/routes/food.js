@@ -1,6 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const foodController = require("../controllers/food");
+const multer = require("multer");
+const upload = multer({
+    limits: {
+        fileSize: 10000000,
+    },
+    fileFilter(req, file, cb) {
+        if (
+            !file.originalname.endsWith(".png") &&
+            !file.originalname.endsWith(".jpg") &&
+            !file.originalname.endsWith(".jpeg")
+        ) {
+            return cb(new Error("Please upload an image"));
+        }
+
+        cb(undefined, true);
+    },
+});
 
 router.get("/dev", (req, res) => {
     res.render("detail");
@@ -10,6 +27,6 @@ router.get("/foods", foodController.getAllFoods);
 
 router.get("/foods/:id", foodController.getFoodById);
 
-router.post("/foods", foodController.createFood);
+router.post("/foods", upload.single("image"), foodController.createFood);
 
 module.exports = router;
