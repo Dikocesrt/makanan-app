@@ -23,10 +23,16 @@ router.get("/dev", (req, res) => {
     res.render("detail");
 });
 
+router.get("/", foodController.getAllFoods);
+
 router.get("/foods", foodController.getAllFoods);
 
 router.get("/foods/:id", foodController.getFoodById);
 
 router.post("/foods", upload.single("image"), foodController.createFood);
+
+router.put("/foods/:id", upload.single("image"), foodController.updateFood);
+
+router.delete("/foods/:id", foodController.deleteFood);
 
 module.exports = router;

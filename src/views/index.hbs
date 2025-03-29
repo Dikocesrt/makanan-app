@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
+        <title>List Makanan</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
                                     {{/each}}
                                 </div>
                                 <p class="font-poppins font-semibold text-[16px] self-start mb-4">Rp. {{this.price}},00</p>
-                                <a href="#" class="font-poppins font-semibold text-[16px] w-full py-3 bg-primary-orange text-white rounded-sm hover:duration-300 hover:scale-105 text-center">Lihat Detail</a>
+                                <a href="/foods/{{this.id}}" class="font-poppins font-semibold text-[16px] w-full py-3 bg-primary-orange text-white rounded-sm hover:duration-300 hover:scale-105 text-center">Lihat Detail</a>
                             </div>
                         </div>
                     {{/each}}
@@ -102,13 +102,12 @@
                         </div>
                         <button type="submit" class="text-white inline-flex items-center bg-primary-orange hover:scale-105 hover:duration-300 focus:ring-2 focus:outline-none focus:ring-primary-orange font-medium font-poppins rounded-lg text-sm px-5 py-2.5 text-center hover:cursor-pointer">
                             <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                            Add new product
+                            Tambah Makanan
                         </button>
                     </form>
                 </div>
             </div>
         </div> 
-
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </body>

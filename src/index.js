@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
 const foodRouter = require("./routes/food");
+const methodOverride = require("method-override");
 require("./configs/database");
 require("./models/food");
 
@@ -24,9 +25,19 @@ hbs.registerHelper("lte", function (a, b) {
     return a <= b;
 });
 
+hbs.registerHelper("eq", function (a, b) {
+    return a === b;
+});
+
+hbs.registerHelper("neq", function (a, b) {
+    return a !== b;
+});
+
 app.use(express.static(publicDirectoryPath));
 
 app.use(express.json());
+
+app.use(methodOverride("_method"));
 
 app.use(foodRouter);
 
